@@ -349,12 +349,14 @@ class InstrumentFrame {
     touchEvXprev = Infinity;
     touchEvYprev = Infinity;
     touchDragged = false;  // It's true when a drag is detected (in touch screen mode).
+    instrumentShowNote = null;
 
 
-    constructor(instrumentImageId, instrumentCanvasId) {
+    constructor(instrumentImageId, instrumentCanvasId, instrumentShowNote) {
         this.instrumentImageId = instrumentImageId;
         this.instrumentCanvasId = instrumentCanvasId;
         this.instrumentCanvasCtx = document.getElementById(instrumentCanvasId).getContext("2d");
+        this.instrumentShowNote = instrumentShowNote;
     }
 
     releaseSelectedNotes() {
@@ -513,6 +515,20 @@ class InstrumentFrame {
         return noteKeyStr;  // Return the note key (or "" if no notes was found)
     }
 
+    // Write the note to the upper or lower right part of the screen
+    writeNoteToShow(note) {
+        let n = Instrument[this.instrumentName].note[note];
+
+        let name = n.name;
+        if (Globals.classicalNotation) {
+            name = convertEnglishNoteToClassicalNote(n.name);
+        }
+        let str = name + n.octave;
+
+
+        let isn = document.getElementById(this.instrumentShowNote).textContent = str;
+    }
+
     deselectNote(note) {
         // Remove the circle drawing
         clearCircle(
@@ -533,12 +549,19 @@ class InstrumentFrame {
 
         // Write the overall notes into the center of screen
         this.writeNotes();
+
+        this.writeNoteToShow(note);
+    }
+
+    emptyNoteToShow() {
+        document.getElementById(this.instrumentShowNote).textContent = "";
     }
 
     deselectAllNotes() {
         while (this.selectedNotes.length > 0) {
             this.deselectNote(this.selectedNotes[0]);
         }
+        this.emptyNoteToShow();
     }
 
     // Draw the notes inside selectedNotes.
@@ -583,6 +606,9 @@ class InstrumentFrame {
 
         // Write the overall notes into the center of screen
         this.writeNotes();
+
+        // Write the note to the upper or lower right part of the screen
+        this.writeNoteToShow(nnote);
     }
 
     drawAllNotes() {
@@ -620,8 +646,6 @@ class InstrumentFrame {
                 this.touchEvXprev = this.touchEvX = e.clientX;
                 this.touchEvYprev = this.touchEvY = e.clientY;
             }
-            // this.instrumentLeft += -(this.touchEvX - e.clientX);
-            // this.instrumentTop += -(this.touchEvY - e.clientY);
             this.touchEvXprev = this.touchEvX;
             this.touchEvYprev = this.touchEvY;
             this.touchEvX = e.clientX;
@@ -695,14 +719,14 @@ class InstrumentFrame {
 
 }  // class InstrumentFrame
 
-let instrument1fr = new InstrumentFrame("instrument1image", "instrument1canvas");
+let instrument1fr = new InstrumentFrame("instrument1image", "instrument1canvas", "instrument1showNote");
 // Load JB8 as default instrument n.1 ("notes", upper view)
 // TODO: deallocare le risorse del vecchio Globals.instrument1 .
 Globals.instrument1 = "bass-jb8";
 instrument1fr.loadInstrument(Globals.instrument1);
 // instrument1fr.drawAllNotes();
 
-let instrument2fr = new InstrumentFrame("instrument2image", "instrument2canvas");
+let instrument2fr = new InstrumentFrame("instrument2image", "instrument2canvas", "instrument2showNote");
 Globals.instrument2 = "piano-bass";
 instrument2fr.loadInstrument(Globals.instrument2);
 // instrument2fr.drawAllNotes();
@@ -850,6 +874,9 @@ function fnRadEnglishNotation() {
     
     Globals.classicalNotation = false;
     document.getElementById("notesTextAtCenter").textContent = "";  // Clear the notes on center screen
+
+    instrument1fr.emptyNoteToShow();
+    instrument2fr.emptyNoteToShow();
 }
 
 function fnRadClassicalNotation() {
@@ -858,6 +885,9 @@ function fnRadClassicalNotation() {
     
     Globals.classicalNotation = true;
     document.getElementById("notesTextAtCenter").textContent = "";  // Clear the notes on center screen
+
+    instrument1fr.emptyNoteToShow();
+    instrument2fr.emptyNoteToShow();
 }
 
 function enlightBtnNotes() {

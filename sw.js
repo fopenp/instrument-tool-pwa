@@ -24,7 +24,7 @@ IN THE SOFTWARE.
 */
 
 const PATH="/instrument-tool-pwa";
-const CACHE_VERSION="v0.0.1";
+const CACHE_VERSION="v0.0.2";
 const CACHE_NAME=`instrument-tool-pwa-${CACHE_VERSION}`;
 
 const URLS = [
