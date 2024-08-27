@@ -344,6 +344,11 @@ class InstrumentFrame {
     #mouseDragged = false;  // It's true when a drag is detected.
     #soundsLoaded = false;  // It's true when all sounds are loaded (when there is a user's click).
     memoSelNotes = [];
+    touchEvX = Infinity;
+    touchEvY = Infinity;
+    touchEvXprev = Infinity;
+    touchEvYprev = Infinity;
+    touchDragged = false;  // It's true when a drag is detected (in touch screen mode).
 
 
     constructor(instrumentImageId, instrumentCanvasId) {
@@ -609,15 +614,54 @@ class InstrumentFrame {
         this.mouseDragged = true;
         let img = document.getElementById(this.instrumentImageId);
         // console.log("img.style.left: " + img.style.left);
-        this.instrumentLeft += e.movementX;
-        this.instrumentTop += e.movementY;
-        img.style.left = this.instrumentLeft + "px";
-        img.style.top = this.instrumentTop + "px";
+        if (this.touchDragged) {
+            // touch
+            if (this.touchEvX == Infinity) {
+                this.touchEvXprev = this.touchEvX = e.clientX;
+                this.touchEvYprev = this.touchEvY = e.clientY;
+            }
+            // this.instrumentLeft += -(this.touchEvX - e.clientX);
+            // this.instrumentTop += -(this.touchEvY - e.clientY);
+            this.touchEvXprev = this.touchEvX;
+            this.touchEvYprev = this.touchEvY;
+            this.touchEvX = e.clientX;
+            this.touchEvY = e.clientY;
+            this.#instrumentLeft += -(this.touchEvXprev - this.touchEvX);
+            this.#instrumentTop += -(this.touchEvYprev - this.touchEvY);
+        }
+        else {
+            // mouse
+            this.#instrumentLeft += e.movementX;
+            this.#instrumentTop += e.movementY;
+        }
+        img.style.left = this.#instrumentLeft + "px";
+        img.style.top = this.#instrumentTop + "px";
     }
 
     #cbMouseDownImageInstrument() { this.instrumentIsClick = true; }
 
     #cbMouseUpImageInstrument() { this.instrumentIsClick = false; }
+
+    #cbTouchHandlerStart(e) {
+        this.instrumentIsClick = true;
+        this.touchDragged = true;
+
+        let touch = e.changedTouches[0];
+        this.touchEvXprev = this.touchEvX = touch.clientX;
+        this.touchEvYprev = this.touchEvY = touch.clientY;
+    }
+
+    #cbTouchHandlerMove(e) {
+        let img = document.getElementById(this.instrumentImageId);
+        let touch = e.changedTouches[0];
+        let me = new MouseEvent("mousemove", { clientX: touch.clientX, clientY: touch.clientY });
+        img.dispatchEvent(me);
+    }
+
+    #cbTouchHandlerEnd(e) {
+        this.instrumentIsClick = false;
+        this.touchDragged = false;
+    }
 
     loadInstrument(name) {
         this.instrumentName = name;
@@ -637,6 +681,9 @@ class InstrumentFrame {
             resizeImage(img, Instrument[name].imageWidth, Instrument[name].imageHeight, Instrument[name].scalePercentage);
         // moveImage(img, -500, -500);
         img.addEventListener("mousemove", this.#cbMoveImageInstrument.bind(this), false);
+        img.addEventListener("touchstart", this.#cbTouchHandlerStart.bind(this), false);
+        img.addEventListener("touchmove", this.#cbTouchHandlerMove.bind(this), false);
+        img.addEventListener("touchend", this.#cbTouchHandlerEnd.bind(this), false);
         img.addEventListener("mousedown", this.#cbMouseDownImageInstrument.bind(this), false);
         img.addEventListener("mouseup", this.#cbMouseUpImageInstrument.bind(this), false);
         img.addEventListener("click", this.#cbMouseClickImageInstrument.bind(this), false);
