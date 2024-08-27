@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<!--
+COPYRIGHT © 2024 Fabio Pollini a.k.a. FopenP <f.open.p@gmail.com> and contributors (see CONTRIBUTORS.md)
+
+The MIT License
+---------------
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FopenP Instrument Tool</title>
+  <script type="text/javascript" src="version.js"></script>
+  <script type="text/javascript" src="i18n.js"></script>
+  <script>document.title = i18n[itoolLang].title;</script>
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="icons/icon.svg">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="manifest" href="/instrument-tool-pwa/manifest.json">
+  <style>
+  </style>
+</head>
+<body>
+    <div id="container">
+      <div id="notes" class="notes trnsOpacity oauto">
+
+        <div class="flexCenterCol" style="height: 40%;">
+          <div class="flexCenterRowNoWrap" style="width: 100%; height: 100%;">
+            <div id="instrument1left" class="flexCenterCol" style="width: 20%; height: 100%;">
+              <button id="btnClear1" class="btnFont1 w100perc" style="height: 100%;" onclick="fnBtnClear1();"></button>
+              <button id="btnMemo1" class="btnFont1 w100perc" style="height: 100%;" onclick="fnBtnMemo1();"></button>
+              <button id="btnRelease1" class="btnFont1 w100perc" style="height: 100%;" onclick="fnBtnRelease1();"></button>
+            </div>
+            <div id="instrument1" style="position: relative; width: 100%; height: 100%; overflow: hidden; user-select: none;">
+              <div id="instrument1image" style="position: absolute;">
+                <canvas id="instrument1canvas" style="position: relative; overflow: hidden"></canvas>
+              </div>
+            </div>
+            <div id="instrument1right" class="flexCenterRow" style="width: 20%; height: 100%;">
+              <button class="btnFont1 bgDark w100perc" style="height: 100%;" onclick="fnBtnCopyUp();">👆</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="flexCenterCol" style="height: 20%;">
+          <div class="flexCenterRow" style="width: 100%; height: 20%">
+          </div>
+          <div id="notesTextAtCenter" class="flexCenterRowNoWrap" style="width: 100%; height: 60%; font-size: 6vh; text-align: center;">
+          </div>
+          <div class="flexCenterRow" style="width: 100%; height: 20%">
+          </div>
+        </div>
+
+        <div class="flexCenterCol" style="height: 40%;">
+          <div class="flexCenterRowNoWrap" style="width: 100%; height: 100%;">
+            <div id="instrument2left" class="flexCenterCol" style="width: 20%; height: 100%;">
+              <button id="btnClear2" class="btnFont1 w100perc" style="height: 100%;" onclick="fnBtnClear2();"></button>
+              <button id="btnMemo2" class="btnFont1 w100perc" style="height: 100%;" onclick="fnBtnMemo2();"></button>
+              <button id="btnRelease2" class="btnFont1 w100perc" style="height: 100%;" onclick="fnBtnRelease2();"></button>
+            </div>
+            <div id="instrument2" style="position: relative; width: 100%; height: 100%; overflow: hidden; user-select: none;">
+              <div id="instrument2image" style="position: absolute;">
+                <canvas id="instrument2canvas" style="position: relative; overflow: hidden"></canvas>
+              </div>
+            </div>
+            <div id="instrument2right" class="flexCenterRow" style="width: 20%; height: 100%;">
+              <button class="btnFont1 bgDark w100perc" style="height: 100%;" onclick="fnBtnCopyDown();">👇</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div id="settings" class="settings trnsOpacity oauto opacity0 flexCenterCol" style="user-select: none;" inert>
+        <div class="flexCenterCol">
+          <div class="flexCenterRow responsiveCol">
+            <div id="txtLanguage"></div>
+            <form autocomplete="off">
+              <div class="responsiveCol">
+                <div class="responsiveRow">
+                  <input type="radio" id="radLangAuto" name="radLanguage" checked onclick="changeLanguageToAuto(); changeLanguage();">
+                  <label for="radLangAuto">Auto</label>
+                </div>
+                <div class="responsiveRow">
+                  <input type="radio" id="radLangEnglish" name="radLanguage" onclick="itoolLang = 'en'; changeLanguage();">
+                  <label for="radLangEnglish">English</label>
+                </div>
+                <div class="responsiveRow">
+                  <input type="radio" id="radLangItalian" name="radLanguage" onclick="itoolLang = 'it'; changeLanguage();">
+                  <label for="radLangItalian">Italiano</label>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="flexCenterRow spacerH"></div>
+          <div class="flexCenterRow responsiveCol">
+            <div id="txtNotation"></div>
+            <form autocomplete="off">
+              <div class="responsiveCol">
+                <div class="responsiveRow">
+                  <input type="radio" id="radEnglishNotation" name="radNotation" checked onclick="fnRadEnglishNotation();">
+                  <label id="txtEnglishNotation" for="radEnglishNotation"></label>
+                </div>
+                <div class="responsiveRow">
+                  <input type="radio" id="radClassicalNotation" name="radNotation" onclick="fnRadClassicalNotation();">
+                  <label id="txtClassicalNotation" for="radClassicalNotation"></label>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div id="credits" class="credits trnsOpacity oauto opacity0 flexCenterCol" inert>
+        <object id="objectCredits" style="width: 100%; height: 100%;"></object>
+      </div>
+    </div>
+    <div id="navbar" class="flexCenterRowNoWrap">
+      <div id="btnNotes" class="navbarButton" onclick="fnBtnNotes();"></div>
+      <div id="btnSettings" class="navbarButton" onclick="fnBtnSettings();" style="opacity: 0.4;"></div>
+      <div id="btnCredits" class="navbarButton" onclick="fnBtnCredits();" style="opacity: 0.4;"></div>
+    </div>
+    <script type="text/javascript" src="index.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+          navigator.serviceWorker.register("/instrument-tool-pwa/sw.js", { scope: "/instrument-tool-pwa/" });
+          console.log("serviceWorker registered.");
+      }
+      else {
+          console.log("serviceWorker not available.");
+      }
+    </script>
+  </body>
+</html>

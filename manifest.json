@@ -1,0 +1,42 @@
+{
+    "name": "FopenP Instrument Tool (PWA Edition)",
+    "short_name": "FopenP IT (PWA)",
+    "description": "Bass and keyboard chord finder.",
+    "scope": "/instrument-tool-pwa/",
+    "start_url": "/instrument-tool-pwa/",
+    "background_color": "#ffffff",
+    "theme_color": "#000000",
+    "icons": [
+        {
+            "src": "icons/icon-48.png",
+            "type": "image/png",
+            "sizes": "48x48"
+        },
+        {
+            "src": "icons/icon-64.png",
+            "type": "image/png",
+            "sizes": "64x64"
+        },
+        {
+            "src": "icons/icon-128.png",
+            "type": "image/png",
+            "sizes": "128x128"
+        },
+        {
+            "src": "icons/icon-256.png",
+            "type": "image/png",
+            "sizes": "256x256"
+        },
+        {
+            "src": "icons/icon-512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        },
+        {
+            "src": "icons/icon.svg",
+            "type": "image/svg",
+            "sizes": "any"
+        }
+    ],
+    "display": "standalone"
+}

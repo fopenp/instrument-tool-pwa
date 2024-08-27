@@ -1,0 +1,178 @@
+/*
+COPYRIGHT © 2024 Fabio Pollini a.k.a. FopenP <f.open.p@gmail.com> and contributors (see CONTRIBUTORS.md)
+
+The MIT License
+---------------
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+*/
+
+html {
+    overflow: hidden;
+}
+
+body {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    /* border: 1px solid red; */
+    background-color: #efefef;
+    color: #000000;
+    overflow: hidden;
+    /* touch-action: none; */
+}
+
+#container {
+    height: 90vh;
+    /* border: 1px solid red; */
+}
+
+#navbar {
+    height: 10vh;
+    /* border: 1px solid blue; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#notesTextAtCenter {
+    font-size: 6vh;
+}
+
+.flexCenterCol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flexCenterRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.flexCenterRowNoWrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.a100percent {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.btnFont1 {
+    font-size: 3vh;
+    line-height: 0;
+}
+
+.bgDark {
+    background-color: #2e2e2e;
+}
+
+.w100perc {
+    width: 100%;
+}
+
+.trnsOpacity {
+    transition: transform 0.5s ease-in-out, opacity 1.0s linear;
+}
+
+.oauto {
+    overflow: auto;
+}
+
+.opacity0 {
+    opacity: 0.0;
+}
+
+.stayRight {
+    transform: translate(100%, -50%) !important;
+}
+
+.stayLeft {
+    transform: translate(-200%, -50%) !important;
+}
+
+.navbarButton {
+    background-color: #2e2e2e;
+    color: #efefef;
+    width: 33%;
+    height: 90%;
+    text-align: center;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s linear;
+    border: 2px solid lightgray;
+}
+
+.notes, .settings, .credits {
+    position: absolute;
+    width: 100vw;
+    height: 90vh;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.spacerH {
+    height: 3vh;
+}
+
+.responsiveCol {
+    display: flex;
+    flex-direction: row;
+}
+
+.responsiveRow {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.5vw;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    .responsiveCol {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .responsiveRow {
+        display: flex;
+        flex-direction: row;
+    }
+
+}
+
+.scroll {
+    overflow-x: scroll;
+    overflow-y: scroll;
+}
