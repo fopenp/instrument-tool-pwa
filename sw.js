@@ -24,7 +24,7 @@ IN THE SOFTWARE.
 */
 
 const PATH="/instrument-tool-pwa";
-const CACHE_VERSION="v0.0.2";
+const CACHE_VERSION="v0.0.3";
 const CACHE_NAME=`instrument-tool-pwa-${CACHE_VERSION}`;
 
 const URLS = [
@@ -39,6 +39,8 @@ const URLS = [
     `${PATH}/credits/credits.it.html`,
     `${PATH}/assets/i/bass-jb8.jpg`,
     `${PATH}/assets/i/piano-bass.jpg`,
+    `${PATH}/assets/i/elguitar-sq.jpg`,
+    `${PATH}/assets/i/piano-elguitar-sq.jpg`,
     `${PATH}/assets/s/jb8/001-e1.mp3`,
     `${PATH}/assets/s/jb8/013-e2.mp3`,
     `${PATH}/assets/s/jb8/026-a1.mp3`,
@@ -47,6 +49,18 @@ const URLS = [
     `${PATH}/assets/s/jb8/063-d3.mp3`,
     `${PATH}/assets/s/jb8/076-g2.mp3`,
     `${PATH}/assets/s/jb8/088-g3.mp3`,
+    `${PATH}/assets/s/elgsq/001-str6-d2.mp3`,
+    `${PATH}/assets/s/elgsq/013-str6-d3.mp3`,
+    `${PATH}/assets/s/elgsq/023-str5-a2.mp3`,
+    `${PATH}/assets/s/elgsq/035-str5-a3.mp3`,
+    `${PATH}/assets/s/elgsq/045-str4-d3.mp3`,
+    `${PATH}/assets/s/elgsq/057-str4-d4.mp3`,
+    `${PATH}/assets/s/elgsq/067-str3-g3.mp3`,
+    `${PATH}/assets/s/elgsq/079-str3-g4.mp3`,
+    `${PATH}/assets/s/elgsq/089-str2-b3.mp3`,
+    `${PATH}/assets/s/elgsq/101-str2-b4.mp3`,
+    `${PATH}/assets/s/elgsq/111-str1-e4.mp3`,
+    `${PATH}/assets/s/elgsq/123-str1-e5.mp3`,
     `${PATH}/icons/icon.svg`,
     `${PATH}/icons/icon-512.png`,
     `${PATH}/icons/icon-256.png`,

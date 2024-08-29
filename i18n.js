@@ -48,7 +48,13 @@ let i18n = {
         language: "Language:",
         notation: "Notation:",
         englishNotation: "English (C3 D#3)",
-        classicalNotation: "Classical (DO3 RE#3)"
+        classicalNotation: "Classical (DO3 RE#3)",
+        instrumentUpper: "Instrument upper screen:",
+        instrumentLower: "Instrument lower screen:",
+        bass: "Bass",
+        guitar: "Guitar",
+        pianoBass: "Piano (bass)",
+        pianoGuitar: "Piano (guitar)"
     },
 
     "it": {
@@ -63,7 +69,13 @@ let i18n = {
         language: "Lingua / Language:",
         notation: "Notazione:",
         englishNotation: "Inglese (C3 D#3)",
-        classicalNotation: "Classica (DO3 RE#3)"
+        classicalNotation: "Classica (DO3 RE#3)",
+        instrumentUpper: "Strumento nello schermo superiore:",
+        instrumentLower: "Strumento nello schermo inferiore:",
+        bass: "Basso",
+        guitar: "Chitarra",
+        pianoBass: "Piano (basso)",
+        pianoGuitar: "Piano (chitarra)"
     }
 
 };

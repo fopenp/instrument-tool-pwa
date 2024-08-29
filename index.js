@@ -223,7 +223,226 @@ let Instrument = {
             "g4": { idx: 40, name: "G", octave: 4, imagePosX: 891, imagePosY: 197, sound: "assets/s/jb8/088-g3.mp3", detune: 1200 }
         },
         soundBuffers: {}
+    },
+
+    "elguitar-sq": {
+        image: "assets/i/elguitar-sq.jpg",
+        imageWidth: "8340",
+        imageHeight: "1280",
+        /*
+        left: -2500,
+        top: -500,
+        */
+        left: 0,
+        top: 0,
+        scalePercentage: 20,
+        noteRadius: 8,
+        noteColor: "red",
+        singleNote: true,  // it's true when no multiple chords are allowed to play.
+        note: {
+            "str6-d2": { idx: 1, name: "D", octave: 2, chord: 6, imagePosX: 467, imagePosY: 181, color: "#cc0000", sound: "assets/s/elgsq/001-str6-d2.mp3" },
+            "str6-dd2": { idx: 2, name: "D#", octave: 2, chord: 6, imagePosX: 511, imagePosY: 181, sound: "assets/s/elgsq/001-str6-d2.mp3", detune: 100 },
+            "str6-e2": { idx: 3, name: "E", octave: 2, chord: 6, imagePosX: 554, imagePosY: 181, sound: "assets/s/elgsq/001-str6-d2.mp3", detune: 200 },
+            "str6-f2": { idx: 4, name: "F", octave: 2, chord: 6, imagePosX: 598, imagePosY: 181, sound: "assets/s/elgsq/001-str6-d2.mp3", detune: 300 },
+            "str6-fd2": { idx: 5, name: "F#", octave: 2, chord: 6, imagePosX: 644, imagePosY: 181, sound: "assets/s/elgsq/001-str6-d2.mp3", detune: 400 },
+            "str6-g2": { idx: 6, name: "G", octave: 2, chord: 6, imagePosX: 688, imagePosY: 181, sound: "assets/s/elgsq/001-str6-d2.mp3", detune: 500 },
+            "str6-gd2": { idx: 7, name: "G#", octave: 2, chord: 6, imagePosX: 733, imagePosY: 181, sound: "assets/s/elgsq/001-str6-d2.mp3", detune: 600 },
+            "str6-a2": { idx: 8, name: "A", octave: 2, chord: 6, imagePosX: 777, imagePosY: 181, sound: "assets/s/elgsq/001-str6-d2.mp3", detune: 700 },
+            "str6-ad2": { idx: 9, name: "A#", octave: 2, chord: 6, imagePosX: 821, imagePosY: 181, sound: "assets/s/elgsq/001-str6-d2.mp3", detune: 800 },
+            "str6-b2": { idx: 10, name: "B", octave: 2, chord: 6, imagePosX: 866, imagePosY: 181, sound: "assets/s/elgsq/001-str6-d2.mp3", detune: 900 },
+            "str6-c3": { idx: 11, name: "C", octave: 3, chord: 6, imagePosX: 910, imagePosY: 181, sound: "assets/s/elgsq/001-str6-d2.mp3", detune: 1000 },
+            "str6-cd3": { idx: 12, name: "C#", octave: 3, chord: 6, imagePosX: 955, imagePosY: 181, sound: "assets/s/elgsq/001-str6-d2.mp3", detune: 1100 },
+            "str6-d3": { idx: 13, name: "D", octave: 3, chord: 6, imagePosX: 998, imagePosY: 181, sound: "assets/s/elgsq/013-str6-d3.mp3" },
+            "str6-dd3": { idx: 14, name: "D#", octave: 3, chord: 6, imagePosX: 1042, imagePosY: 181, sound: "assets/s/elgsq/013-str6-d3.mp3", detune: 100 },
+            "str6-e3": { idx: 15, name: "E", octave: 3, chord: 6, imagePosX: 1080, imagePosY: 181, sound: "assets/s/elgsq/013-str6-d3.mp3", detune: 200 },
+            "str6-f3": { idx: 16, name: "F", octave: 3, chord: 6, imagePosX: 1111, imagePosY: 181, sound: "assets/s/elgsq/013-str6-d3.mp3", detune: 300 },
+            "str6-fd3": { idx: 17, name: "F#", octave: 3, chord: 6, imagePosX: 1138, imagePosY: 181, sound: "assets/s/elgsq/013-str6-d3.mp3", detune: 400 },
+            "str6-g3": { idx: 18, name: "G", octave: 3, chord: 6, imagePosX: 1166, imagePosY: 181, sound: "assets/s/elgsq/013-str6-d3.mp3", detune: 500 },
+            "str6-gd3": { idx: 19, name: "G#", octave: 3, chord: 6, imagePosX: 1194, imagePosY: 181, sound: "assets/s/elgsq/013-str6-d3.mp3", detune: 600 },
+            "str6-a3": { idx: 20, name: "A", octave: 3, chord: 6, imagePosX: 1222, imagePosY: 181, sound: "assets/s/elgsq/013-str6-d3.mp3", detune: 700 },
+            "str6-ad3": { idx: 21, name: "A#", octave: 3, chord: 6, imagePosX: 1252, imagePosY: 181, sound: "assets/s/elgsq/013-str6-d3.mp3", detune: 800 },
+            "str6-b3": { idx: 22, name: "B", octave: 3, chord: 6, imagePosX: 1281, imagePosY: 181, sound: "assets/s/elgsq/013-str6-d3.mp3", detune: 900 },
+            "str5-a2": { idx: 23, name: "A", octave: 2, chord: 5, imagePosX: 467, imagePosY: 160, color: "#cc0000", sound: "assets/s/elgsq/023-str5-a2.mp3" },
+            "str5-ad2": { idx: 24, name: "A#", octave: 2, chord: 5, imagePosX: 511, imagePosY: 160, sound: "assets/s/elgsq/023-str5-a2.mp3", detune: 100 },
+            "str5-b2": { idx: 25, name: "B", octave: 2, chord: 5, imagePosX: 554, imagePosY: 160, sound: "assets/s/elgsq/023-str5-a2.mp3", detune: 200 },
+            "str5-c3": { idx: 26, name: "C", octave: 3, chord: 5, imagePosX: 598, imagePosY: 160, sound: "assets/s/elgsq/023-str5-a2.mp3", detune: 300 },
+            "str5-cd3": { idx: 27, name: "C#", octave: 3, chord: 5, imagePosX: 644, imagePosY: 160, sound: "assets/s/elgsq/023-str5-a2.mp3", detune: 400 },
+            "str5-d3": { idx: 28, name: "D", octave: 3, chord: 5, imagePosX: 688, imagePosY: 160, sound: "assets/s/elgsq/023-str5-a2.mp3", detune: 500 },
+            "str5-dd3": { idx: 29, name: "D#", octave: 3, chord: 5, imagePosX: 733, imagePosY: 160, sound: "assets/s/elgsq/023-str5-a2.mp3", detune: 600 },
+            "str5-e3": { idx: 30, name: "E", octave: 3, chord: 5, imagePosX: 777, imagePosY: 160, sound: "assets/s/elgsq/023-str5-a2.mp3", detune: 700 },
+            "str5-f3": { idx: 31, name: "F", octave: 3, chord: 5, imagePosX: 821, imagePosY: 160, sound: "assets/s/elgsq/023-str5-a2.mp3", detune: 800 },
+            "str5-fd3": { idx: 32, name: "F#", octave: 3, chord: 5, imagePosX: 866, imagePosY: 160, sound: "assets/s/elgsq/023-str5-a2.mp3", detune: 900 },
+            "str5-g3": { idx: 33, name: "G", octave: 3, chord: 5, imagePosX: 910, imagePosY: 160, sound: "assets/s/elgsq/023-str5-a2.mp3", detune: 1000 },
+            "str5-gd3": { idx: 34, name: "G#", octave: 3, chord: 5, imagePosX: 955, imagePosY: 160, sound: "assets/s/elgsq/023-str5-a2.mp3", detune: 1100 },
+            "str5-a3": { idx: 35, name: "A", octave: 3, chord: 5, imagePosX: 998, imagePosY: 160, sound: "assets/s/elgsq/035-str5-a3.mp3" },
+            "str5-ad3": { idx: 36, name: "A#", octave: 3, chord: 5, imagePosX: 1042, imagePosY: 160, sound: "assets/s/elgsq/035-str5-a3.mp3", detune: 100 },
+            "str5-b3": { idx: 37, name: "B", octave: 3, chord: 5, imagePosX: 1080, imagePosY: 160, sound: "assets/s/elgsq/035-str5-a3.mp3", detune: 200 },
+            "str5-c4": { idx: 38, name: "C", octave: 4, chord: 5, imagePosX: 1111, imagePosY: 160, sound: "assets/s/elgsq/035-str5-a3.mp3", detune: 300 },
+            "str5-cd4": { idx: 39, name: "C#", octave: 4, chord: 5, imagePosX: 1138, imagePosY: 160, sound: "assets/s/elgsq/035-str5-a3.mp3", detune: 400 },
+            "str5-d4": { idx: 40, name: "D", octave: 4, chord: 5, imagePosX: 1166, imagePosY: 160, sound: "assets/s/elgsq/035-str5-a3.mp3", detune: 500 },
+            "str5-dd4": { idx: 41, name: "D#", octave: 4, chord: 5, imagePosX: 1194, imagePosY: 160, sound: "assets/s/elgsq/035-str5-a3.mp3", detune: 600 },
+            "str5-e4": { idx: 42, name: "E", octave: 4, chord: 5, imagePosX: 1222, imagePosY: 160, sound: "assets/s/elgsq/035-str5-a3.mp3", detune: 700 },
+            "str5-f4": { idx: 43, name: "F", octave: 4, chord: 5, imagePosX: 1252, imagePosY: 160, sound: "assets/s/elgsq/035-str5-a3.mp3", detune: 800 },
+            "str5-fd4": { idx: 44, name: "F#", octave: 4, chord: 5, imagePosX: 1281, imagePosY: 160, sound: "assets/s/elgsq/035-str5-a3.mp3", detune: 900 },
+            "str4-d3": { idx: 45, name: "D", octave: 3, chord: 4, imagePosX: 467, imagePosY: 138, color: "#cc0000", sound: "assets/s/elgsq/045-str4-d3.mp3" },
+            "str4-dd3": { idx: 46, name: "D#", octave: 3, chord: 4, imagePosX: 511, imagePosY: 138, sound: "assets/s/elgsq/045-str4-d3.mp3", detune: 100 },
+            "str4-e3": { idx: 47, name: "E", octave: 3, chord: 4, imagePosX: 554, imagePosY: 138, sound: "assets/s/elgsq/045-str4-d3.mp3", detune: 200 },
+            "str4-f3": { idx: 48, name: "F", octave: 3, chord: 4, imagePosX: 598, imagePosY: 138, sound: "assets/s/elgsq/045-str4-d3.mp3", detune: 300 },
+            "str4-fd3": { idx: 49, name: "F#", octave: 3, chord: 4, imagePosX: 644, imagePosY: 138, sound: "assets/s/elgsq/045-str4-d3.mp3", detune: 400 },
+            "str4-g3": { idx: 50, name: "G", octave: 3, chord: 4, imagePosX: 688, imagePosY: 138, sound: "assets/s/elgsq/045-str4-d3.mp3", detune: 500 },
+            "str4-gd3": { idx: 51, name: "G#", octave: 3, chord: 4, imagePosX: 733, imagePosY: 138, sound: "assets/s/elgsq/045-str4-d3.mp3", detune: 600 },
+            "str4-a3": { idx: 52, name: "A", octave: 3, chord: 4, imagePosX: 777, imagePosY: 138, sound: "assets/s/elgsq/045-str4-d3.mp3", detune: 700 },
+            "str4-ad3": { idx: 53, name: "A#", octave: 3, chord: 4, imagePosX: 821, imagePosY: 138, sound: "assets/s/elgsq/045-str4-d3.mp3", detune: 800 },
+            "str4-b3": { idx: 54, name: "B", octave: 3, chord: 4, imagePosX: 866, imagePosY: 138, sound: "assets/s/elgsq/045-str4-d3.mp3", detune: 900 },
+            "str4-c4": { idx: 55, name: "C", octave: 4, chord: 4, imagePosX: 910, imagePosY: 138, sound: "assets/s/elgsq/045-str4-d3.mp3", detune: 1000 },
+            "str4-cd4": { idx: 56, name: "C#", octave: 4, chord: 4, imagePosX: 955, imagePosY: 138, sound: "assets/s/elgsq/045-str4-d3.mp3", detune: 1100 },
+            "str4-d4": { idx: 57, name: "D", octave: 4, chord: 4, imagePosX: 998, imagePosY: 138, sound: "assets/s/elgsq/057-str4-d4.mp3" },
+            "str4-dd4": { idx: 58, name: "D#", octave: 4, chord: 4, imagePosX: 1042, imagePosY: 138, sound: "assets/s/elgsq/057-str4-d4.mp3", detune: 100 },
+            "str4-e4": { idx: 59, name: "E", octave: 4, chord: 4, imagePosX: 1080, imagePosY: 138, sound: "assets/s/elgsq/057-str4-d4.mp3", detune: 200 },
+            "str4-f4": { idx: 60, name: "F", octave: 4, chord: 4, imagePosX: 1111, imagePosY: 138, sound: "assets/s/elgsq/057-str4-d4.mp3", detune: 300 },
+            "str4-fd4": { idx: 61, name: "F#", octave: 4, chord: 4, imagePosX: 1138, imagePosY: 138, sound: "assets/s/elgsq/057-str4-d4.mp3", detune: 400 },
+            "str4-g4": { idx: 62, name: "G", octave: 4, chord: 4, imagePosX: 1166, imagePosY: 138, sound: "assets/s/elgsq/057-str4-d4.mp3", detune: 500 },
+            "str4-gd4": { idx: 63, name: "G#", octave: 4, chord: 4, imagePosX: 1194, imagePosY: 138, sound: "assets/s/elgsq/057-str4-d4.mp3", detune: 600 },
+            "str4-a4": { idx: 64, name: "A", octave: 4, chord: 4, imagePosX: 1222, imagePosY: 138, sound: "assets/s/elgsq/057-str4-d4.mp3", detune: 700 },
+            "str4-ad4": { idx: 65, name: "A#", octave: 4, chord: 4, imagePosX: 1252, imagePosY: 138, sound: "assets/s/elgsq/057-str4-d4.mp3", detune: 800 },
+            "str4-b4": { idx: 66, name: "B", octave: 4, chord: 4, imagePosX: 1281, imagePosY: 138, sound: "assets/s/elgsq/057-str4-d4.mp3", detune: 900 },
+            "str3-g3": { idx: 67, name: "G", octave: 3, chord: 3, imagePosX: 467, imagePosY: 118, color: "#cc0000", sound: "assets/s/elgsq/067-str3-g3.mp3" },
+            "str3-gd3": { idx: 68, name: "G#", octave: 3, chord: 3, imagePosX: 511, imagePosY: 118, sound: "assets/s/elgsq/067-str3-g3.mp3", detune: 100 },
+            "str3-a3": { idx: 69, name: "A", octave: 3, chord: 3, imagePosX: 554, imagePosY: 118, sound: "assets/s/elgsq/067-str3-g3.mp3", detune: 200 },
+            "str3-ad3": { idx: 70, name: "A#", octave: 3, chord: 3, imagePosX: 598, imagePosY: 118, sound: "assets/s/elgsq/067-str3-g3.mp3", detune: 300 },
+            "str3-b3": { idx: 71, name: "B", octave: 3, chord: 3, imagePosX: 644, imagePosY: 118, sound: "assets/s/elgsq/067-str3-g3.mp3", detune: 400 },
+            "str3-c4": { idx: 72, name: "C", octave: 4, chord: 3, imagePosX: 688, imagePosY: 118, sound: "assets/s/elgsq/067-str3-g3.mp3", detune: 500 },
+            "str3-cd4": { idx: 73, name: "C#", octave: 4, chord: 3, imagePosX: 733, imagePosY: 118, sound: "assets/s/elgsq/067-str3-g3.mp3", detune: 600 },
+            "str3-d4": { idx: 74, name: "D", octave: 4, chord: 3, imagePosX: 777, imagePosY: 118, sound: "assets/s/elgsq/067-str3-g3.mp3", detune: 700 },
+            "str3-dd4": { idx: 75, name: "D#", octave: 4, chord: 3, imagePosX: 821, imagePosY: 118, sound: "assets/s/elgsq/067-str3-g3.mp3", detune: 800 },
+            "str3-e4": { idx: 76, name: "E", octave: 4, chord: 3, imagePosX: 866, imagePosY: 118, sound: "assets/s/elgsq/067-str3-g3.mp3", detune: 900 },
+            "str3-f4": { idx: 77, name: "F", octave: 4, chord: 3, imagePosX: 910, imagePosY: 118, sound: "assets/s/elgsq/067-str3-g3.mp3", detune: 1000 },
+            "str3-fd4": { idx: 78, name: "F#", octave: 4, chord: 3, imagePosX: 955, imagePosY: 118, sound: "assets/s/elgsq/067-str3-g3.mp3", detune: 1100 },
+            "str3-g4": { idx: 79, name: "G", octave: 4, chord: 3, imagePosX: 998, imagePosY: 118, sound: "assets/s/elgsq/079-str3-g4.mp3" },
+            "str3-gd4": { idx: 80, name: "G#", octave: 4, chord: 3, imagePosX: 1042, imagePosY: 118, sound: "assets/s/elgsq/079-str3-g4.mp3", detune: 100 },
+            "str3-a4": { idx: 81, name: "A", octave: 4, chord: 3, imagePosX: 1080, imagePosY: 118, sound: "assets/s/elgsq/079-str3-g4.mp3", detune: 200 },
+            "str3-ad4": { idx: 82, name: "A#", octave: 4, chord: 3, imagePosX: 1111, imagePosY: 118, sound: "assets/s/elgsq/079-str3-g4.mp3", detune: 300 },
+            "str3-b4": { idx: 83, name: "B", octave: 4, chord: 3, imagePosX: 1138, imagePosY: 118, sound: "assets/s/elgsq/079-str3-g4.mp3", detune: 400 },
+            "str3-c5": { idx: 84, name: "C", octave: 5, chord: 3, imagePosX: 1166, imagePosY: 118, sound: "assets/s/elgsq/079-str3-g4.mp3", detune: 500 },
+            "str3-cd5": { idx: 85, name: "C#", octave: 5, chord: 3, imagePosX: 1194, imagePosY: 118, sound: "assets/s/elgsq/079-str3-g4.mp3", detune: 600 },
+            "str3-d5": { idx: 86, name: "D", octave: 5, chord: 3, imagePosX: 1222, imagePosY: 118, sound: "assets/s/elgsq/079-str3-g4.mp3", detune: 700 },
+            "str3-dd5": { idx: 87, name: "D#", octave: 5, chord: 3, imagePosX: 1252, imagePosY: 118, sound: "assets/s/elgsq/079-str3-g4.mp3", detune: 800 },
+            "str3-e5": { idx: 88, name: "E", octave: 5, chord: 3, imagePosX: 1281, imagePosY: 118, sound: "assets/s/elgsq/079-str3-g4.mp3", detune: 900 },
+            "str2-b3": { idx: 89, name: "B", octave: 3, chord: 2, imagePosX: 467, imagePosY: 97, color: "#cc0000", sound: "assets/s/elgsq/089-str2-b3.mp3" },
+            "str2-c4": { idx: 90, name: "C", octave: 4, chord: 2, imagePosX: 511, imagePosY: 97, sound: "assets/s/elgsq/089-str2-b3.mp3", detune: 100 },
+            "str2-cd4": { idx: 91, name: "C#", octave: 4, chord: 2, imagePosX: 554, imagePosY: 97, sound: "assets/s/elgsq/089-str2-b3.mp3", detune: 200 },
+            "str2-d4": { idx: 92, name: "D", octave: 4, chord: 2, imagePosX: 598, imagePosY: 97, sound: "assets/s/elgsq/089-str2-b3.mp3", detune: 300 },
+            "str2-dd4": { idx: 93, name: "D#", octave: 4, chord: 2, imagePosX: 644, imagePosY: 97, sound: "assets/s/elgsq/089-str2-b3.mp3", detune: 400 },
+            "str2-e4": { idx: 94, name: "E", octave: 4, chord: 2, imagePosX: 688, imagePosY: 97, sound: "assets/s/elgsq/089-str2-b3.mp3", detune: 500 },
+            "str2-f4": { idx: 95, name: "F", octave: 4, chord: 2, imagePosX: 733, imagePosY: 97, sound: "assets/s/elgsq/089-str2-b3.mp3", detune: 600 },
+            "str2-fd4": { idx: 96, name: "F#", octave: 4, chord: 2, imagePosX: 777, imagePosY: 97, sound: "assets/s/elgsq/089-str2-b3.mp3", detune: 700 },
+            "str2-g4": { idx: 97, name: "G", octave: 4, chord: 2, imagePosX: 821, imagePosY: 97, sound: "assets/s/elgsq/089-str2-b3.mp3", detune: 800 },
+            "str2-gd4": { idx: 98, name: "G#", octave: 4, chord: 2, imagePosX: 866, imagePosY: 97, sound: "assets/s/elgsq/089-str2-b3.mp3", detune: 900 },
+            "str2-a4": { idx: 99, name: "A", octave: 4, chord: 2, imagePosX: 910, imagePosY: 97, sound: "assets/s/elgsq/089-str2-b3.mp3", detune: 1000 },
+            "str2-ad4": { idx: 100, name: "A#", octave: 4, chord: 2, imagePosX: 955, imagePosY: 97, sound: "assets/s/elgsq/089-str2-b3.mp3", detune: 1100 },
+            "str2-b4": { idx: 101, name: "B", octave: 4, chord: 2, imagePosX: 998, imagePosY: 97, sound: "assets/s/elgsq/101-str2-b4.mp3" },
+            "str2-c5": { idx: 102, name: "C", octave: 5, chord: 2, imagePosX: 1042, imagePosY: 97, sound: "assets/s/elgsq/101-str2-b4.mp3", detune: 100 },
+            "str2-cd5": { idx: 103, name: "C#", octave: 5, chord: 2, imagePosX: 1080, imagePosY: 97, sound: "assets/s/elgsq/101-str2-b4.mp3", detune: 200 },
+            "str2-d5": { idx: 104, name: "D", octave: 5, chord: 2, imagePosX: 1111, imagePosY: 97, sound: "assets/s/elgsq/101-str2-b4.mp3", detune: 300 },
+            "str2-dd5": { idx: 105, name: "D#", octave: 5, chord: 2, imagePosX: 1138, imagePosY: 97, sound: "assets/s/elgsq/101-str2-b4.mp3", detune: 400 },
+            "str2-e5": { idx: 106, name: "E", octave: 5, chord: 2, imagePosX: 1166, imagePosY: 97, sound: "assets/s/elgsq/101-str2-b4.mp3", detune: 500 },
+            "str2-f5": { idx: 107, name: "F", octave: 5, chord: 2, imagePosX: 1194, imagePosY: 97, sound: "assets/s/elgsq/101-str2-b4.mp3", detune: 600 },
+            "str2-fd5": { idx: 108, name: "F#", octave: 5, chord: 2, imagePosX: 1222, imagePosY: 97, sound: "assets/s/elgsq/101-str2-b4.mp3", detune: 700 },
+            "str2-g5": { idx: 109, name: "G", octave: 5, chord: 2, imagePosX: 1252, imagePosY: 97, sound: "assets/s/elgsq/101-str2-b4.mp3", detune: 800 },
+            "str2-gd5": { idx: 110, name: "G#", octave: 5, chord: 2, imagePosX: 1281, imagePosY: 97, sound: "assets/s/elgsq/101-str2-b4.mp3", detune: 900 },
+            "str1-e4": { idx: 111, name: "E", octave: 4, chord: 1, imagePosX: 467, imagePosY: 74, color: "#cc0000", sound: "assets/s/elgsq/111-str1-e4.mp3" },
+            "str1-f4": { idx: 112, name: "F", octave: 4, chord: 1, imagePosX: 511, imagePosY: 74, sound: "assets/s/elgsq/111-str1-e4.mp3", detune: 100 },
+            "str1-fd4": { idx: 113, name: "F#", octave: 4, chord: 1, imagePosX: 554, imagePosY: 74, sound: "assets/s/elgsq/111-str1-e4.mp3", detune: 200 },
+            "str1-g4": { idx: 114, name: "G", octave: 4, chord: 1, imagePosX: 598, imagePosY: 74, sound: "assets/s/elgsq/111-str1-e4.mp3", detune: 300 },
+            "str1-gd4": { idx: 115, name: "G#", octave: 4, chord: 1, imagePosX: 644, imagePosY: 74, sound: "assets/s/elgsq/111-str1-e4.mp3", detune: 400 },
+            "str1-a4": { idx: 116, name: "A", octave: 4, chord: 1, imagePosX: 688, imagePosY: 74, sound: "assets/s/elgsq/111-str1-e4.mp3", detune: 500 },
+            "str1-ad4": { idx: 117, name: "A#", octave: 4, chord: 1, imagePosX: 733, imagePosY: 74, sound: "assets/s/elgsq/111-str1-e4.mp3", detune: 600 },
+            "str1-b4": { idx: 118, name: "B", octave: 4, chord: 1, imagePosX: 777, imagePosY: 74, sound: "assets/s/elgsq/111-str1-e4.mp3", detune: 700 },
+            "str1-c5": { idx: 119, name: "C", octave: 5, chord: 1, imagePosX: 821, imagePosY: 74, sound: "assets/s/elgsq/111-str1-e4.mp3", detune: 800 },
+            "str1-cd5": { idx: 120, name: "C#", octave: 5, chord: 1, imagePosX: 866, imagePosY: 74, sound: "assets/s/elgsq/111-str1-e4.mp3", detune: 900 },
+            "str1-d5": { idx: 121, name: "D", octave: 5, chord: 1, imagePosX: 910, imagePosY: 74, sound: "assets/s/elgsq/111-str1-e4.mp3", detune: 1000 },
+            "str1-dd5": { idx: 122, name: "D#", octave: 5, chord: 1, imagePosX: 955, imagePosY: 74, sound: "assets/s/elgsq/111-str1-e4.mp3", detune: 1100 },
+            "str1-e5": { idx: 123, name: "E", octave: 5, chord: 1, imagePosX: 998, imagePosY: 74, sound: "assets/s/elgsq/123-str1-e5.mp3" },
+            "str1-f5": { idx: 124, name: "F", octave: 5, chord: 1, imagePosX: 1042, imagePosY: 74, sound: "assets/s/elgsq/123-str1-e5.mp3", detune: 100 },
+            "str1-fd5": { idx: 125, name: "F#", octave: 5, chord: 1, imagePosX: 1080, imagePosY: 74, sound: "assets/s/elgsq/123-str1-e5.mp3", detune: 200 },
+            "str1-g5": { idx: 126, name: "G", octave: 5, chord: 1, imagePosX: 1111, imagePosY: 74, sound: "assets/s/elgsq/123-str1-e5.mp3", detune: 300 },
+            "str1-gd5": { idx: 127, name: "G#", octave: 5, chord: 1, imagePosX: 1138, imagePosY: 74, sound: "assets/s/elgsq/123-str1-e5.mp3", detune: 400 },
+            "str1-a5": { idx: 128, name: "A", octave: 5, chord: 1, imagePosX: 1166, imagePosY: 74, sound: "assets/s/elgsq/123-str1-e5.mp3", detune: 500 },
+            "str1-ad5": { idx: 129, name: "A#", octave: 5, chord: 1, imagePosX: 1194, imagePosY: 74, sound: "assets/s/elgsq/123-str1-e5.mp3", detune: 600 },
+            "str1-b5": { idx: 130, name: "B", octave: 5, chord: 1, imagePosX: 1222, imagePosY: 74, sound: "assets/s/elgsq/123-str1-e5.mp3", detune: 700 },
+            "str1-c6": { idx: 131, name: "C", octave: 6, chord: 1, imagePosX: 1252, imagePosY: 74, sound: "assets/s/elgsq/123-str1-e5.mp3", detune: 800 },
+            "str1-cd6": { idx: 132, name: "C#", octave: 6, chord: 1, imagePosX: 1281, imagePosY: 74, sound: "assets/s/elgsq/123-str1-e5.mp3", detune: 900 }
+        },
+        soundBuffers: {}
+    },
+
+    "piano-elguitar-sq": {
+        image: "assets/i/piano-elguitar-sq.jpg",
+        imageWidth: "7680",
+        imageHeight: "1320",
+        /*
+        left: -2500,
+        top: -500,
+        */
+        left: 0,
+        top: 0,
+        scalePercentage: 20,
+        noteRadius: 8,
+        noteColor: "red",
+        singleNote: true,  // it's true when no multiple chords are allowed to play.
+        note: {
+            "d2": { idx: 1, name: "D", octave: 2, imagePosX: 425, imagePosY: 197, color: "#cc0000", sound: "assets/s/elgsq/001-str6-d2.mp3" },
+            "dd2": { idx: 2, name: "D#", octave: 2, imagePosX: 442, imagePosY: 152, sound: "assets/s/elgsq/001-str6-d2.mp3", detune: 100 },
+            "e2": { idx: 3, name: "E", octave: 2, imagePosX: 452, imagePosY: 197, sound: "assets/s/elgsq/001-str6-d2.mp3", detune: 200 },
+            "f2": { idx: 4, name: "F", octave: 2, imagePosX: 479, imagePosY: 197, sound: "assets/s/elgsq/001-str6-d2.mp3", detune: 300 },
+            "fd2": { idx: 5, name: "F#", octave: 2, imagePosX: 490, imagePosY: 152, sound: "assets/s/elgsq/001-str6-d2.mp3", detune: 400 },
+            "g2": { idx: 6, name: "G", octave: 2, imagePosX: 505, imagePosY: 197, sound: "assets/s/elgsq/001-str6-d2.mp3", detune: 500 },
+            "gd2": { idx: 7, name: "G#", octave: 2, imagePosX: 521, imagePosY: 152, sound: "assets/s/elgsq/001-str6-d2.mp3", detune: 600 },
+            "a2": { idx: 8, name: "A", octave: 2, imagePosX: 533, imagePosY: 197, sound: "assets/s/elgsq/001-str6-d2.mp3", detune: 700 },
+            "ad2": { idx: 9, name: "A#", octave: 2, imagePosX: 552, imagePosY: 152, sound: "assets/s/elgsq/001-str6-d2.mp3", detune: 800 },
+            "b2": { idx: 10, name: "B", octave: 2, imagePosX: 560, imagePosY: 197, sound: "assets/s/elgsq/001-str6-d2.mp3", detune: 900 },
+            "c3": { idx: 11, name: "C", octave: 3, imagePosX: 590, imagePosY: 197, sound: "assets/s/elgsq/001-str6-d2.mp3", detune: 1000 },
+            "cd3": { idx: 12, name: "C#", octave: 3, imagePosX: 600, imagePosY: 152, sound: "assets/s/elgsq/001-str6-d2.mp3", detune: 1100 },
+            "d3": { idx: 13, name: "D", octave: 3, imagePosX: 617, imagePosY: 197, sound: "assets/s/elgsq/013-str6-d3.mp3" },
+            "dd3": { idx: 14, name: "D#", octave: 3, imagePosX: 634, imagePosY: 152, sound: "assets/s/elgsq/013-str6-d3.mp3", detune: 100 },
+            "e3": { idx: 15, name: "E", octave: 3, imagePosX: 644, imagePosY: 197, sound: "assets/s/elgsq/013-str6-d3.mp3", detune: 200 },
+            "f3": { idx: 16, name: "F", octave: 3, imagePosX: 672, imagePosY: 197, sound: "assets/s/elgsq/013-str6-d3.mp3", detune: 300 },
+            "fd3": { idx: 17, name: "F#", octave: 3, imagePosX: 682, imagePosY: 152, sound: "assets/s/elgsq/013-str6-d3.mp3", detune: 400 },
+            "g3": { idx: 18, name: "G", octave: 3, imagePosX: 697, imagePosY: 197, sound: "assets/s/elgsq/013-str6-d3.mp3", detune: 500 },
+            "gd3": { idx: 19, name: "G#", octave: 3, imagePosX: 713, imagePosY: 152, sound: "assets/s/elgsq/013-str6-d3.mp3", detune: 600 },
+            "a3": { idx: 20, name: "A", octave: 3, imagePosX: 726, imagePosY: 197, sound: "assets/s/elgsq/013-str6-d3.mp3", detune: 700 },
+            "ad3": { idx: 21, name: "A#", octave: 3, imagePosX: 745, imagePosY: 152, sound: "assets/s/elgsq/013-str6-d3.mp3", detune: 800 },
+            "b3": { idx: 22, name: "B", octave: 3, imagePosX: 752, imagePosY: 197, sound: "assets/s/elgsq/013-str6-d3.mp3", detune: 900 },
+            "c4": { idx: 23, name: "C", octave: 4, imagePosX: 782, imagePosY: 197, sound: "assets/s/elgsq/013-str6-d3.mp3", detune: 1000 },
+            "cd4": { idx: 24, name: "C#", octave: 4, imagePosX: 792, imagePosY: 152, sound: "assets/s/elgsq/013-str6-d3.mp3", detune: 1100 },
+            "d4": { idx: 25, name: "D", octave: 4, imagePosX: 808, imagePosY: 197, sound: "assets/s/elgsq/057-str4-d4.mp3" },
+            "dd4": { idx: 26, name: "D#", octave: 4, imagePosX: 826, imagePosY: 152, sound: "assets/s/elgsq/057-str4-d4.mp3", detune: 100 },
+            "e4": { idx: 27, name: "E", octave: 4, imagePosX: 837, imagePosY: 197, sound: "assets/s/elgsq/057-str4-d4.mp3", detune: 200 },
+            "f4": { idx: 28, name: "F", octave: 4, imagePosX: 864, imagePosY: 197, sound: "assets/s/elgsq/057-str4-d4.mp3", detune: 300 },
+            "fd4": { idx: 29, name: "F#", octave: 4, imagePosX: 874, imagePosY: 152, sound: "assets/s/elgsq/057-str4-d4.mp3", detune: 400 },
+            "g4": { idx: 30, name: "G", octave: 4, imagePosX: 891, imagePosY: 197, sound: "assets/s/elgsq/057-str4-d4.mp3", detune: 500 },
+            "gd4": { idx: 31, name: "G#", octave: 4, imagePosX: 906, imagePosY: 152, sound: "assets/s/elgsq/057-str4-d4.mp3", detune: 600 },
+            "a4": { idx: 32, name: "A", octave: 4, imagePosX: 915, imagePosY: 197, sound: "assets/s/elgsq/057-str4-d4.mp3", detune: 700 },
+            "ad4": { idx: 33, name: "A#", octave: 4, imagePosX: 938, imagePosY: 152, sound: "assets/s/elgsq/057-str4-d4.mp3", detune: 800 },
+            "b4": { idx: 34, name: "B", octave: 4, imagePosX: 944, imagePosY: 197, sound: "assets/s/elgsq/057-str4-d4.mp3", detune: 900 },
+            "c5": { idx: 35, name: "C", octave: 5, imagePosX: 975, imagePosY: 197, sound: "assets/s/elgsq/057-str4-d4.mp3", detune: 1000 },
+            "cd5": { idx: 36, name: "C#", octave: 5, imagePosX: 984, imagePosY: 152, sound: "assets/s/elgsq/057-str4-d4.mp3", detune: 1100 },
+            "d5": { idx: 37, name: "D", octave: 5, imagePosX: 1000, imagePosY: 197, sound: "assets/s/elgsq/111-str1-e4.mp3", detune: 1000 },
+            "dd5": { idx: 38, name: "D#", octave: 5, imagePosX: 1019, imagePosY: 152, sound: "assets/s/elgsq/111-str1-e4.mp3", detune: 1100 },
+            "e5": { idx: 39, name: "E", octave: 5, imagePosX: 1030, imagePosY: 197, sound: "assets/s/elgsq/123-str1-e5.mp3" },
+            "f5": { idx: 40, name: "F", octave: 5, imagePosX: 1054, imagePosY: 197, sound: "assets/s/elgsq/123-str1-e5.mp3", detune: 100 },
+            "fd5": { idx: 41, name: "F#", octave: 5, imagePosX: 1067, imagePosY: 152, sound: "assets/s/elgsq/123-str1-e5.mp3", detune: 200 },
+            "g5": { idx: 42, name: "G", octave: 5, imagePosX: 1081, imagePosY: 197, sound: "assets/s/elgsq/123-str1-e5.mp3", detune: 300 },
+            "gd5": { idx: 43, name: "G#", octave: 5, imagePosX: 1097, imagePosY: 152, sound: "assets/s/elgsq/123-str1-e5.mp3", detune: 400 },
+            "a5": { idx: 44, name: "A", octave: 5, imagePosX: 1109, imagePosY: 197, sound: "assets/s/elgsq/123-str1-e5.mp3", detune: 500 },
+            "ad5": { idx: 45, name: "A#", octave: 5, imagePosX: 1130, imagePosY: 152, sound: "assets/s/elgsq/123-str1-e5.mp3", detune: 600 },
+            "b5": { idx: 46, name: "B", octave: 5, imagePosX: 1135, imagePosY: 197, sound: "assets/s/elgsq/123-str1-e5.mp3", detune: 700 },
+            "c6": { idx: 47, name: "C", octave: 6, imagePosX: 1167, imagePosY: 197, sound: "assets/s/elgsq/123-str1-e5.mp3", detune: 800 },
+            "cd6": { idx: 48, name: "C#", octave: 6, imagePosX: 1176, imagePosY: 152, sound: "assets/s/elgsq/123-str1-e5.mp3", detune: 900 }
+        },
+        soundBuffers: {}
     }
+
 };
 
 
@@ -245,6 +464,13 @@ function changeLanguage() {
     document.getElementById("txtNotation").textContent = i18n[itoolLang].notation;
     document.getElementById("txtEnglishNotation").textContent = i18n[itoolLang].englishNotation;
     document.getElementById("txtClassicalNotation").textContent = i18n[itoolLang].classicalNotation;
+
+    document.getElementById("txtInstrumentUpper").textContent = i18n[itoolLang].instrumentUpper;
+    document.getElementById("txtInstrumentLower").textContent = i18n[itoolLang].instrumentLower;
+    document.getElementById("txtBass1").textContent = document.getElementById("txtBass2").textContent = i18n[itoolLang].bass;
+    document.getElementById("txtGuitar1").textContent = document.getElementById("txtGuitar2").textContent = i18n[itoolLang].guitar;
+    document.getElementById("txtPianoBass1").textContent = document.getElementById("txtPianoBass2").textContent = i18n[itoolLang].pianoBass;
+    document.getElementById("txtPianoGuitar1").textContent = document.getElementById("txtPianoGuitar2").textContent = i18n[itoolLang].pianoGuitar;
 
     loadCreditsPage();
 }
@@ -330,6 +556,7 @@ function cbResizeEvent(e) {
 }
 window.addEventListener("resize", cbResizeEvent, false);
 
+
 class InstrumentFrame {
 
     instrumentName = "";
@@ -342,7 +569,7 @@ class InstrumentFrame {
     #instrumentScalePercentage = 0;
     selectedNotes = [];
     #mouseDragged = false;  // It's true when a drag is detected.
-    #soundsLoaded = false;  // It's true when all sounds are loaded (when there is a user's click).
+    soundsLoaded = false;  // It's true when all sounds are loaded (when there is a user's click).
     memoSelNotes = [];
     touchEvX = Infinity;
     touchEvY = Infinity;
@@ -350,6 +577,7 @@ class InstrumentFrame {
     touchEvYprev = Infinity;
     touchDragged = false;  // It's true when a drag is detected (in touch screen mode).
     instrumentShowNote = null;
+    #listenersAdded = false;
 
 
     constructor(instrumentImageId, instrumentCanvasId, instrumentShowNote) {
@@ -464,11 +692,11 @@ class InstrumentFrame {
     }
 
     loadSounds() {
-        if (this.#soundsLoaded) {
+        if (this.soundsLoaded) {
             // console.debug("Sounds already loaded.");
             return;
         }
-        this.#soundsLoaded = true;
+        this.soundsLoaded = true;
 
         let list = [];
 
@@ -689,6 +917,8 @@ class InstrumentFrame {
 
     loadInstrument(name) {
         this.instrumentName = name;
+        this.selectedNotes = [];
+        this.memoSelNotes = [];
         let img = document.getElementById(this.instrumentImageId);
         img.style.backgroundImage = "url(" + Instrument[name].image + ")";
         img.style.imageWidth = Instrument[name].imageWidth + "px";
@@ -704,19 +934,22 @@ class InstrumentFrame {
         if (Instrument[name].scalePercentage != 100)
             resizeImage(img, Instrument[name].imageWidth, Instrument[name].imageHeight, Instrument[name].scalePercentage);
         // moveImage(img, -500, -500);
-        img.addEventListener("mousemove", this.#cbMoveImageInstrument.bind(this), false);
-        img.addEventListener("touchstart", this.#cbTouchHandlerStart.bind(this), false);
-        img.addEventListener("touchmove", this.#cbTouchHandlerMove.bind(this), false);
-        img.addEventListener("touchend", this.#cbTouchHandlerEnd.bind(this), false);
-        img.addEventListener("mousedown", this.#cbMouseDownImageInstrument.bind(this), false);
-        img.addEventListener("mouseup", this.#cbMouseUpImageInstrument.bind(this), false);
-        img.addEventListener("click", this.#cbMouseClickImageInstrument.bind(this), false);
+
+        if (!this.#listenersAdded) {
+            this.#listenersAdded = true;
+            img.addEventListener("mousemove", this.#cbMoveImageInstrument.bind(this), false);
+            img.addEventListener("touchstart", this.#cbTouchHandlerStart.bind(this), false);
+            img.addEventListener("touchmove", this.#cbTouchHandlerMove.bind(this), false);
+            img.addEventListener("touchend", this.#cbTouchHandlerEnd.bind(this), false);
+            img.addEventListener("mousedown", this.#cbMouseDownImageInstrument.bind(this), false);
+            img.addEventListener("mouseup", this.#cbMouseUpImageInstrument.bind(this), false);
+            img.addEventListener("click", this.#cbMouseClickImageInstrument.bind(this), false);
+        }
     
         let canvas = document.getElementById(this.instrumentCanvasId);
         canvas.width = Instrument[name].imageWidth;
         canvas.height = Instrument[name].imageHeight;
     }
-
 }  // class InstrumentFrame
 
 let instrument1fr = new InstrumentFrame("instrument1image", "instrument1canvas", "instrument1showNote");
@@ -954,6 +1187,62 @@ function fnBtnCredits() {
     darkenBtnNotes();
     darkenBtnSettings();
     enlightBtnCredits();
+}
+
+function fnRadInstrumentUpperBass() {
+    Globals.instrument1 = "bass-jb8";
+    instrument1fr.loadInstrument("bass-jb8");
+    instrument1fr.soundsLoaded = false;
+    instrument1fr.loadSounds();
+}
+
+function fnRadInstrumentUpperGuitar() {
+    Globals.instrument1 = "elguitar-sq";
+    instrument1fr.loadInstrument("elguitar-sq");
+    instrument1fr.soundsLoaded = false;
+    instrument1fr.loadSounds();
+}
+
+function fnRadInstrumentUpperPianoBass() {
+    Globals.instrument1 = "piano-bass";
+    instrument1fr.loadInstrument("piano-bass");
+    instrument1fr.soundsLoaded = false;
+    instrument1fr.loadSounds();
+}
+
+function fnRadInstrumentUpperPianoGuitar() {
+    Globals.instrument1 = "piano-elguitar-sq";
+    instrument1fr.loadInstrument("piano-elguitar-sq");
+    instrument1fr.soundsLoaded = false;
+    instrument1fr.loadSounds();
+}
+
+function fnRadInstrumentLowerBass() {
+    Globals.instrument2 = "bass-jb8";
+    instrument2fr.loadInstrument("bass-jb8");
+    instrument2fr.soundsLoaded = false;
+    instrument2fr.loadSounds();
+}
+
+function fnRadInstrumentLowerGuitar() {
+    Globals.instrument2 = "elguitar-sq";
+    instrument2fr.loadInstrument("elguitar-sq");
+    instrument2fr.soundsLoaded = false;
+    instrument2fr.loadSounds();
+}
+
+function fnRadInstrumentLowerPianoBass() {
+    Globals.instrument2 = "piano-bass";
+    instrument2fr.loadInstrument("piano-bass");
+    instrument2fr.soundsLoaded = false;
+    instrument2fr.loadSounds();
+}
+
+function fnRadInstrumentLowerPianoGuitar() {
+    Globals.instrument2 = "piano-elguitar-sq";
+    instrument2fr.loadInstrument("piano-elguitar-sq");
+    instrument2fr.soundsLoaded = false;
+    instrument2fr.loadSounds();
 }
 
 function loadCreditsPage() {

@@ -2,7 +2,9 @@
 
 <img alt="Screenshot" src="./readme/screenshot1.png" width="90%">
 
-Instrument Tool is basically a bass note finder and a keyboard note finder.
+<img alt="Screenshot" src="./readme/screenshot2.png" width="90%">
+
+Instrument Tool is basically a bass/guitar/keyboard note finder.
 
 After you have selected a note in the keyboard, you can press the 👆 button to make appear the note in the bass.
 
