@@ -25,7 +25,7 @@ IN THE SOFTWARE.
 
 let itoolVersionMaj = 0;
 let itoolVersionMin = 0;
-let itoolVersionRev = 3;
+let itoolVersionRev = 4;
 let itoolVersion = `${itoolVersionMaj}.${itoolVersionMin}.${itoolVersionRev}`;
 
 // !! REMEMBER to update CACHE_VERSION in sw.js file!
