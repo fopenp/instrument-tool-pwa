@@ -391,7 +391,7 @@ let Instrument = {
         noteColor: "red",
         singleNote: true,  // it's true when no multiple chords are allowed to play.
         note: {
-            "e2": { idx: 1, name: "E", octave: 2, imagePosX: 452, imagePosY: 197, sound: "assets/s/elgsq/001-str6-e2.mp3" },
+            "e2": { idx: 1, name: "E", octave: 2, imagePosX: 452, imagePosY: 197, color: "#cc0000", sound: "assets/s/elgsq/001-str6-e2.mp3" },
             "f2": { idx: 2, name: "F", octave: 2, imagePosX: 479, imagePosY: 197, sound: "assets/s/elgsq/001-str6-e2.mp3", detune: 100 },
             "fd2": { idx: 3, name: "F#", octave: 2, imagePosX: 490, imagePosY: 152, sound: "assets/s/elgsq/001-str6-e2.mp3", detune: 200 },
             "g2": { idx: 4, name: "G", octave: 2, imagePosX: 505, imagePosY: 197, sound: "assets/s/elgsq/001-str6-e2.mp3", detune: 300 },
